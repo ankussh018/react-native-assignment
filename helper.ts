@@ -1,6 +1,5 @@
-//
 // DO Not modify this file.
-//
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type TodoItem = {
