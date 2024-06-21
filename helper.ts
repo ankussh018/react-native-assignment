@@ -8,19 +8,39 @@ type TodoItem = {
   done: boolean;
 };
 
+// export async function getTodoItems(
+//   page: number,
+//   limit: number,
+// ): Promise<TodoItem[]> {
+//   await wait(200);
+//   //   Throw random error
+//   if (Math.random() < 0.2) {
+//     throw new Error('Random error');
+//   }
+//   const todoItems = JSON.parse(
+//     (await AsyncStorage.getItem('todoItems')) || '[]',
+//   );
+//   return todoItems.slice(page * limit, (page + 1) * limit) as TodoItem[];
+// }
+
 export async function getTodoItems(
   page: number,
   limit: number,
 ): Promise<TodoItem[]> {
-  await wait(200);
-  //   Throw random error
-  if (Math.random() < 0.2) {
-    throw new Error('Random error');
+  try {
+    await wait(200);
+    //   Throw random error
+    if (Math.random() < 0.2) {
+      throw new Error('Random error');
+    }
+    const todoItems = JSON.parse(
+      (await AsyncStorage.getItem('todoItems')) || '[]',
+    );
+    return todoItems.slice(page * limit, (page + 1) * limit) as TodoItem[];
+  } catch (error) {
+    console.error('Error getting Todo items:', error);
+    throw error;
   }
-  const todoItems = JSON.parse(
-    (await AsyncStorage.getItem('todoItems')) || '[]',
-  );
-  return todoItems.slice(page * limit, (page + 1) * limit) as TodoItem[];
 }
 
 export async function addTodoItem(title: string) {

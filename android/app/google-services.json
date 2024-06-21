@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1051718902034",
+    "firebase_url": "https://assignment-t01-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "assignment-t01",
+    "storage_bucket": "assignment-t01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051718902034:android:93670634943ae0e2e1d3cb",
+        "android_client_info": {
+          "package_name": "dev.scopex.ankussh018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051718902034-66954bdo1v8i4d40po0p8pbsv85soufp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.scopex.ankussh018",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1051718902034-sgda7kqk02fhat8s50k6b8i28m82nr2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcClCB1rgCLpZ2ArIHZbYSXH3muL5oLrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051718902034-sgda7kqk02fhat8s50k6b8i28m82nr2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

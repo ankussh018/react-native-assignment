@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package dev.scopex.ankussh018;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

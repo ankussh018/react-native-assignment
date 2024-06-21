@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package dev.scopex.ankussh018;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
