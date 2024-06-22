@@ -7,11 +7,14 @@
 
 import React, { useEffect } from 'react';
 import Navigation from './src/Navigation';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs();
+LogBox.ignoreLogs(['Warning....']);
 
 function App(): JSX.Element {
   return (
     <Navigation />
-   
   );
 }
 
