@@ -81,6 +81,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        configurations.all {
+            resolutionStrategy { force 'androidx.work:work-runtime:2.6.0' }
+        }
     }
     signingConfigs {
         debug {
@@ -92,6 +96,7 @@ android {
     }
     buildTypes {
         debug {
+            
             signingConfig signingConfigs.debug
         }
         release {
@@ -107,6 +112,8 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    // FirebaseConfig
+    // implementation 'androidx.multidex:multidex:2.0.1'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

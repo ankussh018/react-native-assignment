@@ -32,13 +32,13 @@ const TodoList: React.FC<Props> = ({ navigation }) => {
                 <View style={styles.sectionContainer}>
                     <Text style={styles.sectionTitle}>TODO</Text>
                 </View>
-                <View style={styles.sectionContainer}>
+                <ScrollView style={{ flex: 1, ...styles.sectionContainer, }}>
                     {todoItems.map((item: any) => (
                         <View key={item.id} style={styles.todoItem}>
                             <Text style={styles.sectionDescription}>{item.title}</Text>
                         </View>
                     ))}
-                </View>
+                </ScrollView>
                 <View style={styles.sectionContainer}>
                     <TextInput
                         style={styles.sectionDescription}
