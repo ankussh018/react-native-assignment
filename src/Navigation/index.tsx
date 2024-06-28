@@ -8,6 +8,8 @@ import LoginScreen from '../Screens/Login';
 import TodoList from '../Screens/TodoList';
 import OTPScreen from '../Screens/OTP';
 import Profile from '../Screens/Profile';
+import GlobalImages from '../Assets/GlobalImages';
+import { Image } from 'react-native';
 
 export type RootStackParamList = {
     Splash: undefined;
@@ -22,9 +24,25 @@ const Stack = createStackNavigator<RootStackParamList>()
 const Tab = createBottomTabNavigator()
 
 const TabNavigator = () => {
-    return ( 
-        <Tab.Navigator>
-            <Tab.Screen name="TodoList" component={TodoList} options={{ title: 'Todo List', headerShown: false }} />
+    return (
+        <Tab.Navigator
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconImage;
+
+                    if (route.name === 'TodoList') { iconImage = GlobalImages.TodoList } else if (route.name === 'Profile') {
+                        iconImage = GlobalImages.Profile;
+                    }
+
+                    return <Image source={iconImage} style={{ width: 24, height: 24, tintColor: color }} />;
+                },
+            })}
+        // tabBarOptions={{
+        //     activeTintColor: 'tomato', // Color for the active tab
+        //     inactiveTintColor: 'gray', // Color for inactive tabs
+        // }}
+        >
+            <Tab.Screen name="TodoList" component={TodoList} options={{ title: 'Todo List', headerShown: false, }} />
             <Tab.Screen name="Profile" component={Profile} options={{ title: 'Profile', headerShown: false }} />
         </Tab.Navigator>
     );
