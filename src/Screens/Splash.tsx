@@ -15,13 +15,17 @@ const Splash: React.FC<Props> = ({ navigation }) => {
   const [opacity, setOpacity] = useState(new Animated.Value(0));
 
 
-
   useEffect(() => {
     setTimeout(async () => {
       setIsLoading(false);
-      // console.log(loggedInStatus)
-      navigation.replace('Login')
-    }, 3000);
+      const value = await isLoggedIn();
+      console.log(value)
+      if (value) {
+        navigation.replace('CustomTab')
+      } else {
+        navigation.replace('Login')
+      }
+    }, 3500);
 
   }, []);
 

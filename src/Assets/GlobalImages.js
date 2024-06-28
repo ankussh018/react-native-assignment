@@ -1,4 +1,5 @@
 export default {
-    SplashLogo: require(''),
+    // SplashLogo: require('../Assets/confuse.png'),
+    ProfilePhoto: require('../Assets/confuse.png')
 
 }

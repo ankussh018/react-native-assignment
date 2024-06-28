@@ -26,7 +26,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
       const signedInUser = await auth().signInWithCredential(googleCredential);
       if (signedInUser) {
         navigation.replace('TodoList')
-      } else { }
+      } else { } 
     } catch (error: any) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow

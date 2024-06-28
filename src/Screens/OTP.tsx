@@ -14,8 +14,6 @@ const OTPScreen: React.FC<Props> = ({ navigation, route }) => {
     const [otp, setOtp] = useState('');
     const { verificationId } = route.params;
 
-    console.log(verificationId)
-
     const verifyOtp = async () => {
         try {
             const credential = auth.PhoneAuthProvider.credential(verificationId, otp);

@@ -2,7 +2,7 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-type TodoItem = {
+export type TodoItem = {
   id: string;
   title: string;
   done: boolean;
@@ -55,6 +55,11 @@ export async function addTodoItem(title: string) {
   const todoItems = JSON.parse(
     (await AsyncStorage.getItem('todoItems')) || '[]',
   );
+  console.log({
+    id: Math.random().toString(36).substr(2, 9),
+    title,
+    done: false,
+  });
   todoItems.push({
     id: Math.random().toString(36).substr(2, 9),
     title,

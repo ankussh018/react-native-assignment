@@ -1,24 +1,26 @@
 // screens/SplashScreen.tsx
 import { Button, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, View, useColorScheme } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RootStackParamList } from '../Navigation';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { addTodoItem, getTodoItems } from '../../helper';
+import { TodoItem, addTodoItem, getTodoItems } from '../../helper';
+import { signOut } from '../Utils/auth';
+import { useNavigation } from '@react-navigation/native';
 
 type Props = StackScreenProps<RootStackParamList, 'TodoList'>;
 
 const TodoList: React.FC<Props> = ({ navigation }) => {
+    // const navigation = useNavigation();
     const isDarkMode = useColorScheme() === 'dark';
-
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     };
-    const [todoItems, setTodoItems] = React.useState([]);
+    const [todoItems, setTodoItems] = useState<TodoItem[]>([]);
     const [newTodoItem, setNewTodoItem] = React.useState('');
     useEffect(() => {
         getTodoItems(0, 10).then(items => setTodoItems(items));
-    }, []);
+    }, [newTodoItem]);
 
     return (
         <SafeAreaView style={backgroundStyle}>
@@ -32,7 +34,7 @@ const TodoList: React.FC<Props> = ({ navigation }) => {
                 <View style={styles.sectionContainer}>
                     <Text style={styles.sectionTitle}>TODO</Text>
                 </View>
-                <ScrollView style={{ flex: 1, ...styles.sectionContainer, }}>
+                <ScrollView style={{ flex: 1 }} nestedScrollEnabled>
                     {todoItems.map((item: any) => (
                         <View key={item.id} style={styles.todoItem}>
                             <Text style={styles.sectionDescription}>{item.title}</Text>
